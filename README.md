@@ -1,14 +1,15 @@
 # list-posts
 
-This template should help get you started developing with Vue 3 in Vite.
+## Configuration
 
-## Recommended IDE Setup
+This project uses environment variables for configuration. You can create a `.env` file in the root of the project to customize the behavior.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Example `.env` file:
+### Environment Variables
 
-## Customize configuration
+- **VITE_BASE_URL**: The base URL for the API.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+
 
 ## Project Setup
 
