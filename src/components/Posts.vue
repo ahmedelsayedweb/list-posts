@@ -1,7 +1,7 @@
 <script setup>
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
-import TableList from './TableList.vue';
+import List from './List.vue';
 // Define reactive variables
 const loading = ref(true); // Loading state
 const header = ref(['Title', 'User Name', 'User Phone', 'Image']); // Table header
@@ -33,7 +33,7 @@ onMounted(fetchData);
             </div>
             <template v-else>
                 <template v-if="posts.length">
-                    <TableList :header="header" :posts="posts" :users="users" />
+                    <List :header="header" :posts="posts" :users="users" />
                 </template>
                 <div v-else class="emptyList">
                     <h6>No Show posts</h6>

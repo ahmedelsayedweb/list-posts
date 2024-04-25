@@ -1,9 +1,9 @@
 <script setup>
-import HeaderPage from './components/HeaderPage.vue';
+import Header from './components/Header.vue';
 import Posts from './components/Posts.vue';
 </script>
 <template>
- <HeaderPage />
+ <Header />
   <main>
     <Posts />
   </main>
