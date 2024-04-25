@@ -20,7 +20,7 @@
                     {{ getUser(post.userId)?.phone }}
                 </td>
                 <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-gray-300 dark:text-gray-300">
-                    <img class="image" @error="handlingErrorImage" :src="getUrlImage(post.id)" />
+                    <img class="image" @error="handleErrorImage" :src="getUrlImage(post.id)" />
                 </td>
             </tr>
         </tbody>
@@ -68,7 +68,11 @@
 
 <script setup>
 import { computed, ref } from 'vue';
-const { users,posts,header } = defineProps(['users','posts','header'])
+const { users,posts,header } = defineProps({
+    users: { type: Array, required: true },
+    posts: { type: Array, required: true },
+    header: { type: Array, required: true},
+})
 const itemsPerPage = ref(10); // Number of items per page
 const currentPage = ref(1); // Current page
 const totalPages = computed(() => Math.ceil(posts.length / itemsPerPage.value)); // Total pages
@@ -77,7 +81,7 @@ const paginatedItems = computed(() => {
     return posts.slice(startIndex.value, startIndex.value + itemsPerPage.value); // Paginated items
 });
 // Placeholder image function for error handling
-const handlingErrorImage = (e) => {
+const handleErrorImage = (e) => {
     e.target.src = 'https://ralfvanveen.com/wp-content/uploads//2021/06/Placeholder-_-Begrippenlijst.svg'
 }
 // Get user details by user ID
