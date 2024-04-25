@@ -1,3 +1,47 @@
+<script setup>
+import { computed, ref } from 'vue';
+const { users,posts,header } = defineProps({
+    users: { type: Array, required: true },
+    posts: { type: Array, required: true },
+    header: { type: Array, required: true},
+})
+const itemsPerPage = ref(10); // Number of items per page
+const currentPage = ref(1); // Current page
+const totalPages = computed(() => Math.ceil(posts.length / itemsPerPage.value)); // Total pages
+const startIndex = computed(() => (currentPage.value - 1) * itemsPerPage.value); // Start index for pagination
+const paginatedItems = computed(() => {
+    return posts.slice(startIndex.value, startIndex.value + itemsPerPage.value); // Paginated items
+});
+// Placeholder image function for error handling
+const handleErrorImage = (e) => {
+    e.target.src = 'https://ralfvanveen.com/wp-content/uploads//2021/06/Placeholder-_-Begrippenlijst.svg'
+}
+// Get user details by user ID
+const getUser = (userId) => {
+    return users.find(item => item.id === userId);
+}
+// Get image URL for post
+const getUrlImage = (postId) => {
+    return `https://picsum.photos/600/300/?image=${postId}`;
+}
+// Set current page
+const setCurrentPage = (numberPage) => {
+    currentPage.value = numberPage;
+}
+// Method to go to the previous page
+const previousPage = () => {
+    if (currentPage.value > 1) {
+        currentPage.value--;
+    }
+}
+// Method to go to the next page
+const nextPage = () => {
+    if (currentPage.value < totalPages.value) {
+        currentPage.value++;
+    }
+}
+</script>
+
 <template>
     <table class="border-collapse table-auto w-full text-sm">
         <thead>
@@ -65,47 +109,3 @@
         </div>
     </div>
 </template>
-
-<script setup>
-import { computed, ref } from 'vue';
-const { users,posts,header } = defineProps({
-    users: { type: Array, required: true },
-    posts: { type: Array, required: true },
-    header: { type: Array, required: true},
-})
-const itemsPerPage = ref(10); // Number of items per page
-const currentPage = ref(1); // Current page
-const totalPages = computed(() => Math.ceil(posts.length / itemsPerPage.value)); // Total pages
-const startIndex = computed(() => (currentPage.value - 1) * itemsPerPage.value); // Start index for pagination
-const paginatedItems = computed(() => {
-    return posts.slice(startIndex.value, startIndex.value + itemsPerPage.value); // Paginated items
-});
-// Placeholder image function for error handling
-const handleErrorImage = (e) => {
-    e.target.src = 'https://ralfvanveen.com/wp-content/uploads//2021/06/Placeholder-_-Begrippenlijst.svg'
-}
-// Get user details by user ID
-const getUser = (userId) => {
-    return users.find(item => item.id === userId);
-}
-// Get image URL for post
-const getUrlImage = (postId) => {
-    return `https://picsum.photos/600/300/?image=${postId}`;
-}
-// Set current page
-const setCurrentPage = (numberPage) => {
-    currentPage.value = numberPage;
-}
-// Method to go to the previous page
-const previousPage = () => {
-    if (currentPage.value > 1) {
-        currentPage.value--;
-    }
-}
-// Method to go to the next page
-const nextPage = () => {
-    if (currentPage.value < totalPages.value) {
-        currentPage.value++;
-    }
-}
-</script>
