@@ -9,9 +9,7 @@ Example `.env` file:
 
 - **VITE_BASE_URL**: The base URL for the API.
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
