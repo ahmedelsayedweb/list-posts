@@ -1,4 +1,4 @@
-# list-posts
+# posts
 
 ## Configuration
 
