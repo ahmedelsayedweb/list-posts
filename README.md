@@ -1,6 +1,9 @@
 # list-posts
 
-This template should help get you started developing with Vue 3 in Vite.
+### Environment Variables
+
+- **VITE_API_BASE_URL**: The base URL for the API.
+- **VITE_DEBUG**: Enable/disable debug mode.
 
 ## Recommended IDE Setup
 
