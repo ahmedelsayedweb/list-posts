@@ -1,13 +1,13 @@
 # list-posts
 
+## Configuration
+
+This project uses environment variables for configuration. You can create a `.env` file in the root of the project to customize the behavior.
+
+Example `.env` file:
 ### Environment Variables
 
-- **VITE_API_BASE_URL**: The base URL for the API.
-- **VITE_DEBUG**: Enable/disable debug mode.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **VITE_BASE_URL**: The base URL for the API.
 
 ## Customize configuration
 
