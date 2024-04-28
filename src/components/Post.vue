@@ -1,12 +1,8 @@
 <script setup>
-const { users, posts, header } = defineProps({
+const { users, posts } = defineProps({
     users: { type: Array, required: true },
     post: { type: Object, required: true },
 })
-// Placeholder image function for error handle
-const handleErrorImage = (e) => {
-    e.target.src = 'https://ralfvanveen.com/wp-content/uploads//2021/06/Placeholder-_-Begrippenlijst.svg'
-}
 // Get user details by user ID
 const getUser = (userId) => {
     return users.find(item => item.id === userId);
@@ -14,6 +10,10 @@ const getUser = (userId) => {
 // Get image URL for post
 const getUrlImage = (postId) => {
     return `https://picsum.photos/600/300/?image=${postId}`;
+}
+// Placeholder image function for error handle
+const handleErrorImage = (e) => {
+    e.target.src = 'https://ralfvanveen.com/wp-content/uploads//2021/06/Placeholder-_-Begrippenlijst.svg'
 }
 </script>
 <template>

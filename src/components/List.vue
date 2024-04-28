@@ -6,6 +6,7 @@ const { users, posts, header } = defineProps({
     posts: { type: Array, required: true },
     header: { type: Array, required: true },
 })
+// Start pagination
 const itemsPerPage = ref(10); // Number of items per page
 const currentPage = ref(1); // Current page
 const totalPages = computed(() => Math.ceil(posts.length / itemsPerPage.value)); // Total pages
